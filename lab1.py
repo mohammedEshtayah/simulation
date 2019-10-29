@@ -4,8 +4,7 @@ import matplotlib.pyplot as plt
 
 if __name__ == "__main__":
     t=[]
-    pt=[]
-    #print("Goodbye, World!")
+    pt=[] 
     p=100 # عدد السكان 
     r=0.1 #نسبة التغير عدد السكان 
     dt=0.01   #انسبة التغير بالسنة 

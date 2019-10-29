@@ -1,0 +1,44 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[13]:
+
+
+from matplotlib import pyplot as plt
+import math
+mass=0.5
+g=-9.81
+radious=0.05
+weight=mass*g
+A=radious*radious*math.pi
+dt=0.01
+t=[]
+n= 100/dt
+v=0
+p=400
+pl=[]
+vl=[]
+i=0
+while p >0:
+    t.append(i*dt)
+    i+=1
+    friction=-0.65*A*v*abs(v)
+    total_force=friction+weight
+    a= total_force/mass
+    v=v+a*dt
+    p=p+v*dt
+    pl.append(p/10)
+    vl.append(abs(v))
+plt.plot(t,pl)
+plt.plot(t,vl)
+
+    
+    
+    
+
+
+# In[ ]:
+
+
+
+

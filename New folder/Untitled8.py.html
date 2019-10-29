@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+import turtle
+import random
+t= turtle.Turtle()
+turtle.speed(0)
+turtle.clear()
+for i in  range(1000):
+    t.fd(5)
+    t.left(random.choice([0,90,-90]))
+    
+
+
+# In[37]:
+
+
+import numpy as np
+import random
+from math import sqrt
+steps=10000
+replica=1000
+d=np.zeros(steps)
+for k in range(replica):
+    x=0
+    y=0
+    for i in range(steps):
+        if random.random()> 0.5:
+            x+=1
+        else:
+            x-=1
+        if random.random()> 0.5:
+            y+=1
+        else:
+            y-=1
+        d[i]+=sqrt(x**2+y**2)
+
+
+d =np.array(d)
+d=d/replica
+import matplotlib.pyplot as plt
+plt.scatter(range(steps),d)
+        
+        
+        
+
+
+# In[ ]:
+
+
+
+

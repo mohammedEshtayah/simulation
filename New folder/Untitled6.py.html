@@ -1,0 +1,84 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[3]:
+
+
+import pandas as pd
+data=pd.read_csv('diabetes.csv')
+
+
+# In[6]:
+
+
+data.head()
+
+
+# In[8]:
+
+
+data.describe()
+
+
+# In[23]:
+
+
+from matplotlib import pyplot as plt
+
+plt.scatter(data['BMI'],data['Glucose'])
+
+
+# In[135]:
+
+
+d=data[((data['Glucose']>0))]
+d=d[((d['Insulin']>0))]
+d=d[d['Age']>30]
+plt.scatter(d['Glucose'],d['Insulin'])
+
+
+# In[71]:
+
+
+d['Glucose'].corr(d['Insulin'])
+
+
+# In[49]:
+
+
+d['BMI'].corr(d['Age'])
+
+
+# In[76]:
+
+
+d['BMI'].cov(d['Age'])
+
+
+# In[109]:
+
+
+d['Insulin'].plot.hist(bins=150)
+
+
+# In[138]:
+
+
+from sklearn.linear_model import LinearRegression
+import numpy as np
+X = pd.DataFrame(d['Glucose'])
+y = pd.DataFrame(d['Insulin'])
+reg = LinearRegression().fit(X,y)
+b=[]
+for i in range(100,200):
+    b.append(reg.predict(np.array([[i]])))
+b= np.array(b)
+plt.plot(range(100,200),b[:,0],'r')
+plt.scatter(X,y)
+
+
+# In[ ]:
+
+
+
+

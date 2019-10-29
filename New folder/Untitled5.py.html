@@ -1,0 +1,238 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+import numpy as np
+
+a = np.zeros((2,2))   # Create an array of all zeros
+print(a)              # Prints "[[ 0.  0.]
+                      #          [ 0.  0.]]"
+
+b = np.ones((1,2))    # Create an array of all ones
+print(b)              # Prints "[[ 1.  1.]]"
+
+c = np.full((2,2), 7)  # Create a constant array
+print(c)               # Prints "[[ 7.  7.]
+                       #          [ 7.  7.]]"
+
+d = np.eye(2)         # Create a 2x2 identity matrix
+print(d)              # Prints "[[ 1.  0.]
+                      #          [ 0.  1.]]"
+
+e = np.random.random((2,2))  # Create an array filled with random values
+print(e)                     # Might print "[[ 0.91940167  0.08143941]
+                             #               [ 0.68744134  0.87236687]]"
+
+
+# In[3]:
+
+
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+b = a[:2, 1:3]
+print (b)
+
+
+# In[13]:
+
+
+print (a)
+row_r1 = a[1, :]    # Rank 1 view of the second row of a
+row_r2 = a[1:2, :]  # Rank 2 view of the second row of a
+print('----')
+print(row_r1, row_r1.shape)  # Prints "[5 6 7 8] (4,)"
+print(row_r2, row_r2.shape)  #
+print(row_r1[0])
+
+
+# In[14]:
+
+
+# Create a new array from which we will select elements
+a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+
+print(a)  # prints "array([[ 1,  2,  3],
+          #                [ 4,  5,  6],
+          #                [ 7,  8,  9],
+          #                [10, 11, 12]])"
+
+# Create an array of indices
+b = np.array([0, 2, 0, 1])
+
+# Select one element from each row of a using the indices in b
+print(a[np.arange(4), b])  # Prints "[ 1  6  7 11]"
+
+# Mutate one element from each row of a using the indices in b
+a[np.arange(4), b] += 10
+
+print(a)  # prints "array([[11,  2,  3],
+          #                [ 4,  5, 16],
+          #                [17,  8,  9],
+          #                [10, 21, 12]])
+
+
+# In[15]:
+
+
+print (np.arange(4))
+
+
+# In[19]:
+
+
+x=list(range(4))
+print(x)
+
+
+# In[20]:
+
+
+print(a[np.arange(4), b])
+
+
+# In[21]:
+
+
+a = np.array([[1,2], [3, 4], [5, 6]])
+bool_idx = (a > 2) 
+print(bool_idx)
+
+
+# In[22]:
+
+
+print(a[bool_idx])
+
+
+# In[23]:
+
+
+print(a[(a>3)])
+
+
+# In[29]:
+
+
+x = np.array([[1.0,2],[3,4]], dtype=np.float64)
+y = np.array([[5,6],[7,8]], dtype=np.float64)
+print(x + y)
+print(np.add(x, y))
+
+
+# In[26]:
+
+
+print(y - x)
+print(np.subtract(x, y))
+
+
+# In[55]:
+
+
+print(x * y)
+print(np.multiply(x, y))
+
+
+# In[56]:
+
+
+print(np.sqrt(x))
+
+
+# In[33]:
+
+
+v = np.array([9,10])
+w = np.array([11, 12])
+print(v.dot(w))
+
+
+# In[34]:
+
+
+x = np.array([[1,2],[3,4]])
+print(np.sum(x)) 
+
+
+# In[35]:
+
+
+print (a)
+
+
+# In[41]:
+
+
+print(a[:,1:2][1,0])
+
+
+# In[43]:
+
+
+print(a[:,1][1])
+
+
+# In[44]:
+
+
+a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+print(a)
+
+
+# In[45]:
+
+
+b = np.array([0, 2, 0, 1])
+print (b)
+
+
+# In[46]:
+
+
+print(np.arange(4))
+
+
+# In[47]:
+
+
+print(a[np.arange(4),b])
+
+
+# In[48]:
+
+
+a[np.arange(4), b] += 10
+
+
+# In[49]:
+
+
+print(a)
+
+
+# In[51]:
+
+
+bool_idx = (a > 3) 
+print(bool_idx)
+
+
+# In[54]:
+
+
+print(a[(a<10)])
+
+
+# In[59]:
+
+
+print(a)
+print(a.T)
+
+
+# In[ ]:
+
+
+
+

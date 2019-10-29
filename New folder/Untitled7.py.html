@@ -1,0 +1,247 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[136]:
+
+
+from matplotlib import pyplot as plt
+import numpy as np
+import math
+import random
+#random.seed(119999999)
+def f(x):
+    return math.sqrt(math.sin(x)**2+1)
+x=[]
+y=[]
+count=0
+nop=100
+for i in range(nop):   
+    xx=random.uniform(0,2)
+    yy=random.uniform(0,1.5)
+    x.append(xx)
+    y.append(yy)
+    if yy <=f(xx):
+        count+=1
+area=3*count/nop
+print(area)
+plt.scatter(x,y)
+#a=np.arange(0,2,0.1)
+#ay=np.sqrt(np.cos(a)**2+1)
+#plt.plot(a,ay)
+
+
+# In[ ]:
+
+
+
+
+
+# In[132]:
+
+
+for i in range(10):
+    print(random.random())
+
+
+# In[137]:
+
+
+r=10
+
+
+# In[138]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[139]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[140]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[55]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[56]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[57]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[58]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[59]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[60]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[61]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[62]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[63]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[64]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[65]:
+
+
+r=(7*r+1) % 11
+print(r)
+
+
+# In[174]:
+
+
+r1=10
+r2=1
+for i in range( 20):
+    r1=((7*(r1)+1) %(2**31-1))
+    print(i, r1/(2**31-1))
+
+
+# In[179]:
+
+
+a=2
+b=3
+for i in range(10):
+    print(((b-a)*random.random())+a)
+
+
+# In[2]:
+
+
+import numpy as np
+rand= np.random.rand(1000000)
+b=np.sqrt(-2*np.log(rand))
+a=np.random.rand(1000000)*2*3.14
+x=b*np.cos(a)
+import matplotlib.pyplot as plt
+plt.hist(x, bins='auto')
+plt.show()
+
+
+# In[116]:
+
+
+import random
+c=0
+
+m=100
+for i in range(m):
+    if random.random() <=0.15:
+        c+=1
+    
+print(c/m)
+
+
+# In[119]:
+
+
+import random
+x=[]
+for i in range( 100):
+    p=random.random()
+    if p <=0.15 :
+        x.append(0)
+    elif p<=0.35 :
+        x.append(1)
+    else: 
+        x.append(2)
+a= np.array(x)
+plt.hist(a, bins='auto')
+plt.show()
+  
+
+
+# In[120]:
+
+
+import random
+x=[]
+for i in range( 1000):
+    p=random.random()
+    if p <=0.12 :
+        x.append(0)
+    elif p<=0.26 :
+        x.append(90)
+    elif p<=0.69:
+        x.append(180)
+    else: 
+        x.append(270)
+#print (x)       
+#a= np.array(x)
+#plt.plot(a)
+#plt.show()
+import turtle
+t= turtle.Turtle()
+turtle.speed(0)
+turtle.clear()
+for i in  x:
+    t.fd(5)
+    t.left(i)
+
+
+# In[ ]:
+
+
+
+

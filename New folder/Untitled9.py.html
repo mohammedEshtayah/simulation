@@ -1,0 +1,58 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[31]:
+
+
+import random
+from math import pi , sin, sqrt, log, cos
+from matplotlib import pyplot as plt
+#import numpty as np
+s=2
+mu=0
+n=[]
+for i in range(10000000):
+    a= random.random()*2*pi
+    b=sqrt(-2*log(random.random()))*s
+    n.append(b*cos(a)+mu)
+
+plt.hist(n, bins='auto')
+plt.show()
+
+
+# In[36]:
+
+
+import numpy as np
+rand= np.random.rand(1000000)
+x= -1*np.log(rand)/1
+import matplotlib.pyplot as plt
+plt.hist(x, bins='auto')
+plt.show()
+
+
+# In[41]:
+
+
+import random
+from math import sin ,pi, cos
+def f(x):
+    return pi*sin(4*pi*x)
+x=[]
+for i in range(10000000):
+    a=random.random()/4
+    y=f(a)
+    b=pi*random.random()
+    if y>b :
+        x.append(a)
+print(len(x))
+import matplotlib.pyplot as plt
+plt.hist(x, bins='auto')
+plt.show() 
+
+
+# In[ ]:
+
+
+
+
