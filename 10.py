@@ -25,9 +25,11 @@ for i in range(int(n)):
     pred_births = prey_pop * pred_pop * pred_birth_fraction
     pred_deaths = pred_death_prop_const * pred_pop
     pred_pop = pred_pop + (pred_births - pred_deaths)*dt
+    
     prey_births = prey_birth_fraction * prey_pop
     prey_deaths = (prey_death_prop_const * pred_pop) * prey_pop
     prey_pop = prey_pop + (prey_births - prey_deaths)*dt
+
     pred_list.append(pred_pop)
     prey_list.append(prey_pop)
     t_list.append(t)

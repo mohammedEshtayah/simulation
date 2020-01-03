@@ -12,7 +12,7 @@ k = - (math.log(0.5) / halfLife)
 dt = 0.1
 n = 24/dt
 for i in range(int(n)):
-    elemination = - asperinInPlazma * k
+    elemination = elemination- asperinInPlazma * k
     asperinInPlazma = asperinInPlazma + elemination*dt
     tList.append(t)
     aspList.append(asperinInPlazma / plazmaVol)

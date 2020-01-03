@@ -1,0 +1,53 @@
+import random
+import math
+def departure(t):
+    return (t+abs(random.normalvariate(10,2)),'D')
+    
+c=3 #capacity
+server= 0
+queue=0
+t=0
+EL=[(1,'A'),(500,'end')]
+ql=[]
+tl=[]
+t_o=0
+b=0
+q=[]
+w=0
+while True:
+    ql.append(queue)
+    tl.append(t)
+    EL.sort()
+    e=EL.pop(0)
+    type=e[1]
+    t_o=t
+    t=e[0]
+    b+=server*(t-t_o)
+    if type =='A':
+#        print("one custumer arraived   at time ",int(t),"#"*server)
+        if server < c:
+            server+=1
+            EL.append(departure(t))
+        else:
+            queue+=1
+            q.append(t)
+            
+#       EL.append((t+random.expovariate(0.4),'A'))
+        EL.append((t+random.triangular(1,3,4),'A'))
+
+    elif type =='D':
+#        print ("one custumer departured at time ",int(t),"#"*server) 
+        if queue ==0 :
+            server-=1
+        else:
+            queue-=1
+            tt=q.pop(0)
+            w+=t-tt
+            EL.append(departure(t))
+    else:
+        break
+   # print(int(t),'\t',queue,'\t',server)
+print(c," Utilization=", b/(t*c))
+print(w)
+from matplotlib import pyplot as plt
+plt.plot(tl,ql) 

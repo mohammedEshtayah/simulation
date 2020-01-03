@@ -1,0 +1,33 @@
+import random
+c=4 #capacity
+server= 0
+queue=0
+t=0
+EL=[(1,'A'),(500,'end')]
+ql=[]
+tl=[]
+while True:
+    ql.append(queue)
+    tl.append(t)
+    EL.sort()
+    e=EL.pop(0)
+    type=e[1]
+    t=e[0]
+    if type =='A':
+        if server < c:
+            server+=1
+            EL.append((t+random.uniform(1,15),'D'))
+        else:
+            queue+=1
+        EL.append((t+random.expovariate(0.4),'A'))
+    elif type =='D':
+        if queue ==0 :
+            server-=1
+        else:
+            queue-=1
+            EL.append((t+random.uniform(1,15),'D'))
+    else:
+        break
+   # print(int(t),'\t',queue,'\t',server)
+from matplotlib import pyplot as plt
+plt.plot(tl,ql)

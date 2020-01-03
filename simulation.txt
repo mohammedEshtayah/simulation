@@ -1,0 +1,352 @@
+r = 0.1
+n = 500
+for i in range(n):
+    growth = r * p
+    p = p + dt * growth
+    t = t + dt
+print(p)
+...............
+from matplotlib import pyplot as plt
+import math
+p0 = 100
+p = p0
+r = 0.1
+dt = 1
+n = int(20/dt)
+t = 0
+pList = []
+tList = []
+ptList = []
+for i in range(n):
+    growth = r * p
+    p = p + growth * dt
+    t = t + dt
+    tList.append(t)
+    pList.append(p)
+    ptList.append ))
+print(p)
+plt.plot(tList, pList, 'r')
+plt.plot(tList, ptList, 'b')
+plt.show()
+
+......................
+from matplotlib import pyplot as plot
+q0 = 100
+q = q0
+r = -0.00012098968
+dt = 10
+n = (60000/dt)
+t = 0
+tList = []
+qList = []
+for i in range(int(n)):
+    decay = r * q
+    q = q + decay * dt
+    tList.append(t)
+    qList.append(q)
+    t = t + dt
+print(q)
+plt.plot(tList, qList, 'r')
+plt.show()
+......................
+#asperin 
+from matplotlib import pyplot as plt
+halfLife = 3.2
+plazmaVol = 3000
+asperinInPlazma0 =  650 * 1000 #2 pills
+asperinInPlazma = asperinInPlazma0
+
+t = 0
+tList = []
+aspList = []
+k = - (math.log(0.5) / halfLife)
+dt = 0.1
+n = 24/dt
+for i in range(int(n)):
+    elemination = - asperinInPlazma * k
+    asperinInPlazma = asperinInPlazma + elemination*dt
+    tList.append(t)
+    aspList.append(asperinInPlazma / plazmaVol)
+    t = t + dt
+print(asperinInPlazma)
+plt.plot(tList, aspList, 'g')
+
+..............................
+
+#page 50 textbook
+from matplotlib import pyplot as plt
+halfLife = 22
+plazmaVol = 3000
+dozeInPlazma0 =  (100 * 1000) * 0.12
+dozeInPlazma = dozeInPlazma0
+t = 0
+tList = []
+aspList = []
+k = - (math.log(0.5) / halfLife)
+dt = 0.01
+n = (24*14)/dt
+for i in range(int(n)):
+    elemination = - dozeInPlazma * k
+    dozeInPlazma = dozeInPlazma + elemination*dt
+    if ((i * dt) % 8) == 0:
+        dozeInPlazma = dozeInPlazma + dozeInPlazma0
+    tList.append(t)
+    aspList.append(dozeInPlazma / plazmaVol)
+    t = t + dt
+print(dozeInPlazma)
+plt.plot(tList, aspList, 'g')
+.......................
+#population in a bounded resource area that has m as a maximum capacity for the growth
+from matplotlib import pyplot as plt
+import math
+p0 = 100
+m = 10000
+p = p0
+r = 0.1
+dt = 0.01
+n = int(100/dt)
+t = 0
+pList = []
+tList = []
+for i in range(n):
+    growth = r * p*(1 - p/m)
+    p = p + growth * dt
+    t = t + dt
+    tList.append(t)
+    pList.append(p)
+print(p)
+plt.plot(tList, pList, 'r')
+plt.show()
+...........................
+#bilogistic model for population
+from matplotlib import pyplot as plt
+import math
+p0 = 10000
+m1 = 20000
+m2 = 50000
+m = m1 + 1
+a = 0.2
+p = p0
+r = 0.1
+dt = 0.01
+n = int(100/dt)
+t = 0
+pList = []
+tList = []
+mList = []
+for i in range(n):
+    growth = r * p*(1 - p/m)
+    mGrowth = a*(m - m1)*(1 - (m - m1)/m2)
+    m = m + mGrowth * dt
+    p = p + growth * dt
+    t = t + dt
+    tList.append(t)
+    pList.append(p)
+    mList.append(m)
+print(p)
+plt.plot(tList, pList, 'r')
+plt.plot(tList, mList, 'g')
+plt.show()
+.......................................
+#chapter 3: simulation in page 106
+from matplotlib import pyplot as plt
+m = 0.5 # mass in kg
+a = -9.81 # accelaration due to gravity in m/s^2
+r = 0.05 # radius in m
+dt = 0.01 
+timeInterval = 15 # in seconds
+n = timeInterval / dt
+weight = m * a 
+projectedArea = 3.14159 * r * r
+v0 = 0 #initial velocity in m/s
+v = v0
+p0 = 400 #initial poosition in m
+p = p0
+t = 0
+tList = []
+speedList = []
+positionList = []
+for i in range(int(n)):
+    airFriction = -0.65 * projectedArea * v * abs(v)
+    totalForce = airFriction + weight
+    accelaration = totalForce / m
+    diffV = accelaration #change in velocity
+    diffP = v #change in position
+    speed = abs(v)
+    tList.append(t)
+    speedList.append(speed * 10) # i changed the scale
+    positionList.append(p)
+    t = t + dt
+    v = v + diffV * dt
+    p = p + diffP * dt
+    
+plt.plot(tList, speedList, 'r')
+plt.plot(tList, positionList, 'g')
+plt.show()
+....................................
+# a human jumping out of the sky and using a parachute :: repeated
+from matplotlib import pyplot as plt
+m = 90 # mass in kg
+a = -9.81 # accelaration due to gravity in m/s^2
+#r = 0.4 # radius in m
+dt = 0.01 
+timeInterval = 40 # in seconds
+n = timeInterval / dt
+weight = m * a 
+projectedArea = 0.4
+v0 = 0 #initial velocity in m/s
+v = v0
+p0 = 2000 #initial poosition in m
+p = p0
+t = 0
+tList = []
+speedList = []
+positionList = []
+flag = 1
+for i in range(int(n)):
+    airFriction = -0.65 * projectedArea * v * abs(v)
+    totalForce = airFriction + weight
+    accelaration = totalForce / m
+    diffV = accelaration #change in velocity
+    diffP = v #change in position
+    speed = abs(v)
+    tList.append(t)
+    speedList.append(speed * 10) # i changed the scale
+    positionList.append(p)
+    t = t + dt
+    v = v + diffV * dt
+    p = p + diffP * dt
+    if p <= 1000 and flag == 1:
+        projectedArea = 28
+        flag = 0 
+plt.plot(tList, speedList, 'r')
+plt.plot(tList, positionList, 'g')
+plt.show()
+..................................
+#bungee jump simulation :), page 84
+from matplotlib import pyplot as plt
+m = 80 # mass in kg
+a = -9.81 # accelaration due to gravity in m/s^2
+unWeightedLength = 30 # original length of the cord 
+sk = 6 # N/m
+#r = 0.4 # radius in m
+dt = 0.01 
+timeInterval = 70 # in seconds
+n = timeInterval / dt
+weight = m * a 
+projectedArea = 0.1
+v0 = 5 #initial velocity in m/s
+v = v0
+p0 = 0 #initial poosition in m
+p = p0
+t = 0
+tList = []
+vList = []
+positionList = []
+restoringSpringForce = 0
+for i in range(int(n)):
+    airFriction = -0.65 * projectedArea * v * abs(v)
+    if p > unWeightedLength:
+        restoringSpringForce = -1*sk * (p - unWeightedLength)
+    else:
+        restoringSpringForce = 0
+    totalForce = airFriction - weight + restoringSpringForce 
+    accelaration = totalForce / m
+    diffV = accelaration #change in velocity
+    diffP = v #change in position
+    tList.append(t)
+    vList.append(v)
+    positionList.append(p)
+    t = t + dt
+    v = v + diffV * dt
+    p = p + diffP * dt
+plt.plot(tList, vList, 'r')
+plt.plot(tList, positionList, 'g')
+plt.show()
+...................................
+#chapter 4: 
+#competition simulation dor 2 sspecies
+from matplotlib import pyplot as plt
+# for bts
+bts_pop0 = 15
+bts_pop = bts_pop0
+bts_birth_fraction = 1
+bts_death_prop_const = 0.2
+bts_list = []
+# for wts
+wts_pop0 = 20
+wts_pop = wts_pop0
+wts_birth_fraction = 1
+wts_death_prop_const = 0.27
+wts_list = []
+# general info
+t = 0
+t_list = []
+time_interval = 5
+dt = 0.001
+n = time_interval/dt
+# for loop
+for i in range(int(n)):
+    bts_births = bts_birth_fraction * bts_pop
+    bts_deaths = (bts_death_prop_const * wts_pop) * bts_pop
+    bts_pop = bts_pop + (bts_births - bts_deaths)*dt
+    wts_births = wts_birth_fraction * wts_pop
+    wts_deaths = (wts_death_prop_const * bts_pop) * wts_pop
+    wts_pop = wts_pop + (wts_births - wts_deaths)*dt
+    bts_list.append(bts_pop)
+    wts_list.append(wts_pop)
+    t_list.append(t)
+    t = dt * i
+plt.plot(t_list, bts_list, 'r')
+plt.plot(t_list, wts_list, 'g')
+plt.show()
+...................................
+#competition simulation for predators and preys
+#Graph of populations versus time in months
+from matplotlib import pyplot as plt
+# for bts
+pred_pop0 = 15
+pred_pop = pred_pop0
+pred_birth_fraction = 0.01
+pred_death_prop_const = 1.06
+pred_list = []
+# for wts
+prey_pop0 = 100
+prey_pop = prey_pop0
+prey_birth_fraction = 2
+prey_death_prop_const = 0.02
+prey_list = []
+# general info
+t = 0
+t_list = []
+time_interval = 12
+dt = 0.001
+n = time_interval/dt
+# for loop
+for i in range(int(n)):
+    pred_births = prey_pop * pred_pop * pred_birth_fraction
+    pred_deaths = pred_death_prop_const * pred_pop
+    pred_pop = pred_pop + (pred_births - pred_deaths)*dt
+    prey_births = prey_birth_fraction * prey_pop
+    prey_deaths = (prey_death_prop_const * pred_pop) * prey_pop
+    prey_pop = prey_pop + (prey_births - prey_deaths)*dt
+    pred_list.append(pred_pop)
+    prey_list.append(prey_pop)
+    t_list.append(t)
+    t = dt * i
+plt.plot(t_list, pred_list, 'r')
+plt.plot(t_list, prey_list, 'g')
+plt.show()
+...................................
+
+tition simulation for predators and preys
+#Graph of populations versus time in months
+from matplotlib import pyplot as plt
+# for bts
+pred_pop0 = 15
+pred_pop = pred_pop0
+pred_birth_fraction = 0.01
+pred_death_prop_const = 1.06
+pred_list = []
+# for wts
+prey_

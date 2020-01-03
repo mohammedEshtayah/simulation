@@ -23,6 +23,7 @@ n = time_interval/dt
 for i in range(int(n)):
     bts_births = bts_birth_fraction * bts_pop
     bts_deaths = (bts_death_prop_const * wts_pop) * bts_pop
+    
     bts_pop = bts_pop + (bts_births - bts_deaths)*dt
     wts_births = wts_birth_fraction * wts_pop
     wts_deaths = (wts_death_prop_const * bts_pop) * wts_pop
